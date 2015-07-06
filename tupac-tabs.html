@@ -1,0 +1,17 @@
+<section>
+  <ul class="nav nav-pills centerThis">
+    <li ng-class="{ active:tab.isSet(1)}">
+      <a href ng-click="tab.setTab(1)"> Mourn</a>
+    </li>
+    <li ng-class="{ active:tab.isSet(2)}">
+      <a href ng-click="tab.setTab(2)"> Reminisce</a>
+    </li>
+  </ul>
+
+  <!--  Mourn Tab's Content  -->
+  <tupac-mourn ng-show="tab.isSet(1)" ></tupac-mourn>
+
+  <!--  Reminisce Tab's Content  -->
+  <tupac-reminisce ng-show="tab.isSet(2)"></tupac-reminisce>
+
+</section>

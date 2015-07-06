@@ -1,0 +1,39 @@
+<!-- mourn list -->
+<ul>
+  <h4>Submit Your Eulogy</h4>
+  <li ng-repeat="post in mourn.posts">
+    <blockquote>
+      <strong>{{post.tears}} Tears</strong>
+      {{post.eulogy}}
+      <cite class="clearfix">-{{post.author}}</cite>
+    </blockquote>
+  </li>
+</ul>
+
+<!-- Mourn Form -->
+<form name="mournForm" ng-controller="MournController as mournCtrl" ng-submit="mournCtrl.addEulogy(eulogy)">
+
+<!-- Live mourn -->
+    <blockquote>
+      <strong>{{mournCtrl.mourn.post.tears}} Tears</strong>
+      <p>{{mournCtrl.mourn.post.eulogy}}</p>
+      <cite class="clearfix">-{{mournCtrl.mourn.post.author}}</cite>
+    </blockquote>
+
+<!-- Mourn Form interactive -->
+    <h4>Submit Your Eulogy</h4>
+    <fieldset class="form-group">
+      <select ng-model="mournCtrl.mourn.post.tears" class="form-control" ng-options="tears for tears in [5,4,3,2,1]" title="Tears">
+        <option value>How many tears you spill?</option>
+      </select>
+    </fieldset>
+    <fieldset class="form-group">
+      <textarea ng-model="mournCtrl.mourn.post.eulogy" class="form-control" placeholder="What you feeling?..." title="Mourn"></textarea>
+    </fieldset>
+    <fieldset class="form-group">
+      <input ng-model="mournCtrl.mourn.post.author" type="email" class="form-control" placeholder="SugeKnight@DeathRow.net" title="Email" />
+    </fieldset>
+    <fieldset class="form-group">
+      <input type="submit" class="btn btn-primary pull-right" value="Submit Eulogy" />
+    </fieldset>
+</form>
